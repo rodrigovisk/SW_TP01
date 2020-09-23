@@ -115,7 +115,7 @@ namespace SWTP01
 
                 if (result.getName() != null)
                 {
-                    return context.Response.WriteAsync(livros[0].getAuthorNames());
+                    return context.Response.WriteAsync(result.getAuthorNames());
                 }
 
                 return context.Response.WriteAsync("Livro Não encontrado");
@@ -138,7 +138,7 @@ namespace SWTP01
 
                 if (result.getName() != null)
                 {
-                    var html = $"<pre style='color:red'>{livros[0].ToString()}</pre>";
+                    var html = $"<pre style='color:red'>{result.ToString()}</pre>";
                     return context.Response.WriteAsync(html);
                 }
 
