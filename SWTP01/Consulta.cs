@@ -26,12 +26,11 @@ namespace SWTP01
             using (var file = File.OpenText(Consulta.nomeArquivoCSV))
             {
                 var books = new List<Book>();
-                Author[] autores = new Author[2];
 
                 while (!file.EndOfStream)
                 {
                     var textoLivro = file.ReadLine();
-
+                    Author[] autores = new Author[2];
                     if (string.IsNullOrEmpty(textoLivro))
                     {
                         continue;
@@ -41,14 +40,17 @@ namespace SWTP01
 
 
                     var autor1 = new Author();
+                    var autor2 = new Author();
                     autor1.Name = infoLivro[4];
+                    autor1.Email = infoLivro[1];
 
                     autores.SetValue(autor1, 0);
 
                     if (infoLivro.Length == 6)
                     {
-                        var autor2 = new Author();
-                        autor1.Name = infoLivro[5];
+                        autor2.Name = infoLivro[5];
+                        autor2.Email = infoLivro[1];
+                        autores.SetValue(autor2, 1);
                     }
 
                     
